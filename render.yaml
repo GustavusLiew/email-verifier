@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: email-verifier-app
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn email_verifier:app"
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
